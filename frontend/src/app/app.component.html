@@ -1,34 +1,43 @@
-<h1> Weather App </h1>
 <div class="container mx-auto">
-  <app-search (onSearch)="onSearchEmit($event)" />
+  <div class="header flex p-3">
+    <div class="w-2/3 p-3">
+      <span class="font-semibold text-2xl">
+        Weather App
+      </span>
+    </div>
+    <div class="w-1/2 p-3">
+      <app-search (onSearch)="onSearchEmit($event)" />
+    </div>
+  </div>
+
   <div *ngIf="data" class="flex flex-row mt-8">
     <div class="w-1/4 p-3 leading-8">
       name : {{data.name }}
-   <br>
+      <br>
       coords : <br>
-       <span>
-         lat : {{data.coord.lon}}
-        </span> 
-        <span>
-          lat : {{data.coord.lat }}
-         </span> 
+      <span>
+        lat : {{data.coord.lon}}
+      </span>
+      <span>
+        lat : {{data.coord.lat }}
+      </span>
     </div>
 
     <div class="w-1/4 p-3 leading-8">
       main :
       <br>
       <span>
-        Temp  : {{data.main.temp}}
+        Temp : {{data.main.temp}}
       </span>
 
       <br>
       <span>
-        Feels Like  : {{data.main.feels_like}}
+        Feels Like : {{data.main.feels_like}}
       </span>
 
       <br>
       <span>
-        Temp min  : {{data.main.temp_min}}
+        Temp min : {{data.main.temp_min}}
       </span>
 
       <br>
@@ -38,29 +47,29 @@
 
       <br>
       <span>
-        Humidity  : {{data.main.humidity}}
+        Humidity : {{data.main.humidity}}
       </span>
 
       <br>
       <span>
-        Sea Level  : {{data.main.sea_level}}
+        Sea Level : {{data.main.sea_level}}
       </span>
 
       <br>
       <span>
-        Ground Level  : {{data.main.grnd_level}}
+        Ground Level : {{data.main.grnd_level}}
       </span>
     </div>
-  
+
 
     <div class="w-1/4 p-3 leading-8">
       wind :
       <br>
       <span> Speed : {{data.wind.speed}} </span>
-      
+
       <br>
       <span> Degree : {{data.wind.deg}} </span>
-      
+
       <div>
         visibility : {{data.visibility}}
       </div>
@@ -69,6 +78,6 @@
     <div class="w-1/4 p-3 leading-8">
       clouds : {{data.clouds.all }}
     </div>
-    
+
   </div>
 </div>
