@@ -65,8 +65,6 @@ class WeatherService
             if ($response->ok()) {
 
                 $this->store($params);
-
-                $this->storeCache($this->cityName, json_encode($response->body()));
             }
         } catch (Exception $exception) {
 
@@ -85,8 +83,11 @@ class WeatherService
 
         if ($record) {
 
-            return $record['data'];
+            $this->storeCache($this->cityName, json_encode($record['data']));
+
+            return json_decode($record['data']);
         }
+
         return null;
     }
 
@@ -99,7 +100,7 @@ class WeatherService
         $record = Cache::get($key);
         if ($record) {
 
-            return json_decode($record, true);
+            return json_decode(json_decode($record, true));
         }
         return $record;
     }
